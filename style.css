@@ -1,0 +1,260 @@
+/* http://meyerweb.com/eric/tools/css/reset/ 
+   v2.0 | 20110126
+   License: none (public domain)
+*/
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed,
+figure, figcaption, footer, header, hgroup,
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baseline;
+}
+
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure,
+footer, header, hgroup, menu, nav, section {
+  display: block;
+}
+
+body {
+  line-height: 1;
+}
+
+ol, ul {
+  list-style: none;
+}
+
+blockquote, q {
+  quotes: none;
+}
+
+blockquote:before, blockquote:after,
+q:before, q:after {
+  content: "";
+  content: none;
+}
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+body {
+  display: grid;
+  place-items: center;
+  height: 100vh;
+}
+
+.todolist {
+  width: 100%;
+  max-width: 480px;
+  height: 700px;
+  box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+  padding: 16px;
+  border-radius: 15px;
+}
+
+.todolist_controller {
+  box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+  border-radius: 10px;
+  height: 180px;
+  padding: 20px;
+}
+
+form {
+  display: flex;
+  gap: 0 10px;
+}
+form button {
+  cursor: pointer;
+  padding: 10px 16px;
+  background: rgb(32, 212, 32);
+  border: none;
+  border-radius: 5px;
+  text-transform: capitalize;
+  color: #fff;
+}
+form button:active {
+  transform: scale(1.1);
+}
+
+.todolist_input-wrapper {
+  box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+  height: 50px;
+  flex: 1;
+  display: flex;
+  align-items: center;
+  padding: 0 10px;
+  border-radius: 5px;
+}
+.todolist_input-wrapper input {
+  width: 100%;
+  height: 100%;
+  border: none;
+  outline: none;
+  font-size: 20px;
+}
+.todolist_input-wrapper i {
+  cursor: pointer;
+  color: rgb(228, 55, 55);
+}
+
+.todolist_deleteall {
+  background: rgb(228, 55, 55);
+  color: #fff;
+  border-radius: 5px;
+  cursor: pointer;
+  border: none;
+  padding: 15px 20px;
+  margin-top: 80px;
+}
+.todolist_deleteall:active {
+  transform: scale(1.1);
+}
+
+.todolist-taskcontainer {
+  display: flex;
+  flex-direction: column;
+  gap: 15px 0;
+  padding: 18px;
+  font-family: sans-serif;
+  height: 450px;
+  overflow-y: auto;
+}
+.todolist-taskcontainer::-webkit-scrollbar {
+  display: none;
+}
+
+.todolist_results {
+  box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+  border-radius: 5px;
+  padding: 16px;
+}
+.todolist_results strong {
+  font-weight: 700;
+  font-size: 18px;
+  display: block;
+  padding: 5px;
+  word-break: break-all;
+}
+
+.bounced {
+  animation: bounce 0.5s;
+}
+
+@keyframes bounce {
+  0% {
+    transform: scale(1.1);
+  }
+  25% {
+    transform: scale(0.7);
+  }
+  50% {
+    transform: scale(1.05);
+  }
+  75% {
+    transform: scale(0.8);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+.todolist_buttons {
+  margin-top: 15px;
+}
+
+.todolist-btn {
+  width: 99px;
+  padding: 14px 0;
+  border: none;
+  color: #fff;
+  border-radius: 5px;
+  position: relative;
+}
+.todolist-btn i {
+  pointer-events: none;
+}
+
+.complete {
+  background-color: rgb(32, 212, 32);
+  color: #fff;
+}
+
+.edit {
+  background-color: gold;
+  color: #fff;
+}
+
+.time {
+  background-color: dodgerblue;
+  color: #fff;
+  position: relative;
+}
+
+.delete {
+  background-color: rgb(228, 55, 55);
+  color: #fff;
+}
+
+.additional_time {
+  position: absolute;
+  background-color: #333;
+  padding: 10px;
+  border-radius: 5px;
+  left: 15%;
+  top: -40px;
+  transform: translateX(-50%);
+  transition: 0.2s;
+  font-size: 13px;
+  transform: scale(0);
+  opacity: 0;
+}
+
+.time:hover > .additional_time {
+  transform: scale(1);
+  opacity: 1;
+}
+
+.deleted {
+  opacity: 0;
+  transition: 0.5s;
+  transform: translateX(-100%);
+}
+
+.edits {
+  background-color: blueviolet;
+}
+
+@media (max-width: 420px) {
+  body {
+    margin: 0 30px;
+  }
+  .todolist-btn {
+    width: 100%;
+  }
+  .todolist_results {
+    padding: 13px;
+  }
+  .todolist_buttons {
+    gap: 0 5px;
+    display: flex;
+    align-items: center;
+  }
+  .todolist_buttons .complete {
+    display: flex;
+    gap: 0 3px;
+  }
+}/*# sourceMappingURL=style.css.map */

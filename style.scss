@@ -1,0 +1,299 @@
+/* http://meyerweb.com/eric/tools/css/reset/ 
+   v2.0 | 20110126
+   License: none (public domain)
+*/
+
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed, 
+figure, figcaption, footer, header, hgroup, 
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	font-size: 100%;
+	font: inherit;
+	vertical-align: baseline;
+}
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure, 
+footer, header, hgroup, menu, nav, section {
+	display: block;
+}
+body {
+	line-height: 1;
+}
+ol, ul {
+	list-style: none;
+}
+blockquote, q {
+	quotes: none;
+}
+blockquote:before, blockquote:after,
+q:before, q:after {
+	content: '';
+	content: none;
+}
+table {
+	border-collapse: collapse;
+	border-spacing: 0;
+}
+
+
+$main-shadow-color: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+$main-light-color: #fff;
+$main-success-color: rgb(32, 212, 32);
+$main-danger-color: rgb(228, 55, 55);
+$main-border-radius-xl: 15px;
+$main-border-radius-l: 10px;
+$main-border-radius-sm: 5px;
+
+body{
+    display: grid;
+    place-items: center;
+    height: 100vh;
+}
+
+.todolist{
+    width: 100%;
+    max-width: 480px;
+    height: 700px;
+    box-shadow: $main-shadow-color;
+    padding: 16px;
+    border-radius: $main-border-radius-xl;
+}
+
+.todolist_controller{
+    // width: 100%;
+    box-shadow: $main-shadow-color;
+    border-radius: $main-border-radius-l;
+    height: 180px;
+    padding: 20px;
+}
+
+form{
+    display: flex;
+    gap: 0 10px;
+
+    button{
+        cursor: pointer;
+        padding: 10px 16px;
+        background: $main-success-color;
+        border: none;
+        border-radius: $main-border-radius-sm;
+        text-transform: capitalize;
+        color: $main-light-color;
+        &:active{
+            transform: scale(1.1);
+        }
+    }
+}
+
+.todolist_input-wrapper{
+    box-shadow: $main-shadow-color;
+    height: 50px;
+    flex: 1;
+    display: flex;
+    align-items: center;
+    padding: 0 10px;
+    border-radius: $main-border-radius-sm;
+    input{
+        width: 100%;
+        height: 100%;
+        border: none;
+        outline: none;
+        font-size: 20px;
+    }
+
+    i{
+        cursor: pointer;
+        color: $main-danger-color;
+    }
+
+}
+
+
+.todolist_deleteall{
+    background: $main-danger-color;
+    color: $main-light-color;
+    border-radius: $main-border-radius-sm;
+    cursor: pointer;
+    border: none;
+    padding: 15px 20px;
+    margin-top: 80px;
+    &:active{
+        transform: scale(1.1);
+    }
+}
+
+.todolist-taskcontainer{
+    display: flex;
+    flex-direction: column;
+    gap: 15px 0;
+    padding: 18px;
+    font-family: sans-serif;
+    height: 450px;
+    overflow-y: auto;
+  &::-webkit-scrollbar{
+    display: none;
+  }
+}
+
+// .todolist_item{
+//     box-shadow: $main-shadow-color;
+//     padding: 16px;
+//     border-radius: $main-border-radius-sm;
+//     strong{
+//         font-size: 18px;
+//         font-weight: 700;
+//     }
+// }
+
+// .todolist_actions{
+//     margin-top: 15px;
+// }
+
+// .todolist_btn{
+//     cursor: pointer;
+//     width: 108px;
+//     padding: 14px 0;
+//     border: none;
+//     border-radius: $main-border-radius-sm;
+//     gap: 10px;
+// }
+
+.todolist_results{
+    box-shadow: $main-shadow-color;
+    border-radius: $main-border-radius-sm;
+    padding: 16px;
+    strong{
+        font-weight: 700;
+        font-size: 18px;
+        display: block;
+        padding: 5px;
+        word-break: break-all;
+    }
+}
+
+.bounced{
+    animation: bounce 0.5s;
+}
+
+@keyframes bounce{
+    0%{
+        transform: scale(1.1);
+    }
+    25%{
+        transform: scale(0.7);
+    }
+    50%{
+        transform: scale(1.05);  
+    }
+    75%{
+        transform: scale(0.8);
+    }
+    100%{
+        transform: scale(1);
+    }
+}
+
+.todolist_buttons{
+   margin-top: 15px;
+}
+
+.todolist-btn{
+     width: 99px;
+     padding: 14px 0;
+     border: none;
+     color: #fff;
+     border-radius: $main-border-radius-sm;
+     position: relative;
+     i{
+       pointer-events: none;
+     }
+      
+}
+
+
+.complete{
+    background-color: $main-success-color;
+    color: $main-light-color;
+}
+
+.edit{
+    background-color: gold;
+    color: $main-light-color;
+}
+
+.time{
+    background-color: dodgerblue;
+    color: $main-light-color;
+    position: relative;
+}
+
+.delete{
+    background-color: $main-danger-color;
+    color: $main-light-color;
+}
+
+.additional_time{
+    position: absolute;
+    background-color: #333;
+    padding: 10px;
+    border-radius: $main-border-radius-sm;
+    left: 15%;
+    top: -40px;
+    transform: translateX(-50%);
+    transition: 0.2s;
+    font-size: 13px;
+    transform: scale(0);
+    opacity: 0;
+}
+
+.time:hover > .additional_time{
+    transform: scale(1);
+    opacity: 1;
+}
+
+.deleted{
+    opacity: 0;
+    transition: 0.5s;
+    transform: translateX(-100%);
+}
+
+.edits{
+    background-color: blueviolet;
+}
+
+@media (max-width: 420px){
+    body{
+        margin: 0 30px;
+    }
+
+    .todolist-btn{
+        width: 100%;
+    }
+
+    .todolist_results{
+        padding: 13px;
+    }
+
+    .todolist_buttons{
+        gap: 0 5px;
+        display: flex;
+        align-items: center;
+
+        .complete{
+            display: flex;
+            gap: 0 3px;
+        }
+    }    
+}
